@@ -1,0 +1,40 @@
+server:
+  port: 5000
+  servlet:
+    context-path: /
+    encoding:
+      charset: utf-8
+      enabled: true
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres-database.cj8kdizre01l.us-east-1.rds.amazonaws.com:5432/recorder_db
+    username: recorder
+    password: fpzhej1234!
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update # create, update, none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+    #show-sql: true
+    format-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: polling
+    defer-datasource-initialization: true
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zome: Asia/Seoul
+
+
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
