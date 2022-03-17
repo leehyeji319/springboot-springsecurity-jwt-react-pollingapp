@@ -24,7 +24,7 @@ public class JwtTokenProvider {
 	private static final Logger logger = LoggerFactory.getLogger(JwtTokenProvider.class);
 
 	@Value("${app.jwtSecret}")
-	private String apikey = "jwtsigntutorialasdfasdfasdfasdfasdf";
+	private String jwtSecret;
 
 	@Value("${app.jwtExpirationInMs}")
 	private int jwtExpirationInMs;
@@ -87,6 +87,6 @@ public class JwtTokenProvider {
 	}
 
 	private Key getSignKey() {
-		return Keys.hmacShaKeyFor(apikey.getBytes(StandardCharsets.UTF_8));
+		return Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
 	}
 }
