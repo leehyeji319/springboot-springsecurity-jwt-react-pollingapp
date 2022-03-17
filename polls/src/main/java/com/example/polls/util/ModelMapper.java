@@ -1,6 +1,7 @@
 package com.example.polls.util;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -26,7 +27,7 @@ public class ModelMapper {
 		pollResponse.setQuestion(poll.getQuestion());
 		pollResponse.setCreationDateTime(poll.getCreatedAt());
 		pollResponse.setExpirationDateTime(poll.getExpirationDateTime());
-		Instant now = Instant.now();
+		LocalDateTime now = LocalDateTime.now();
 		pollResponse.setExpired(poll.getExpirationDateTime().isBefore(now));
 
 		List<ChoiceResponse> choiceResponses = poll.getChoices().stream().map(choice -> {

@@ -2,6 +2,8 @@ package com.example.polls.model.audit;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;
@@ -23,13 +25,13 @@ import lombok.Setter;
 	allowGetters = true
 )
 @Getter @Setter
-public abstract class DateAudit implements Serializable {
+public abstract class DateAudit {
 
 	@CreatedDate
 	@Column(nullable = false, updatable = false)
-	private Instant createdAt;
+	private LocalDateTime createdAt;
 
 	@LastModifiedDate
 	@Column(nullable = false)
-	private Instant updatedAt;
+	private LocalDateTime updatedAt;
 }

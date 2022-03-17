@@ -2,7 +2,9 @@ package com.example.polls.model;
 
 import java.awt.*;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -49,7 +51,7 @@ public class Poll extends UserDateAudit {
 	private List<Choice> choices = new ArrayList<>();
 
 	@NotNull
-	private Instant expirationDateTime;
+	private LocalDateTime expirationDateTime;
 
 	public void addChoice(Choice choice) {
 		choices.add(choice);

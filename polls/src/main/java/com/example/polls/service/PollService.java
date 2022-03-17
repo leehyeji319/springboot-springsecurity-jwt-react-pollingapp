@@ -24,6 +24,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -156,8 +157,8 @@ public class PollService {
 			poll.addChoice(new Choice(choiceRequest.getText()));
 		});
 
-		Instant now = Instant.now();
-		Instant expirationDateTime = now.plus(Duration.ofDays(pollRequest.getPollLength().getDays()))
+		LocalDateTime now = LocalDateTime.now();
+		LocalDateTime expirationDateTime = now.plus(Duration.ofDays(pollRequest.getPollLength().getDays()))
 			.plus(Duration.ofHours(pollRequest.getPollLength().getHours()));
 
 		poll.setExpirationDateTime(expirationDateTime);
@@ -193,7 +194,7 @@ public class PollService {
 		Poll poll = pollRepository.findById(pollId)
 			.orElseThrow(() -> new ResourceNotFoundException("Poll", "id", pollId));
 
-		if(poll.getExpirationDateTime().isBefore(Instant.now())) {
+		if(poll.getExpirationDateTime().isBefore(LocalDateTime.now())) {
 			throw new BadRequestException("Sorry! This Poll has already expired");
 		}
 

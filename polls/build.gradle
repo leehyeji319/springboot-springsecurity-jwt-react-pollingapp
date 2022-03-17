@@ -36,7 +36,9 @@ dependencies {
 
 	//<!-- For Java 8 Date/Time Support -->
 	// https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
-	implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.3.0-rc1'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+
 
 }
 

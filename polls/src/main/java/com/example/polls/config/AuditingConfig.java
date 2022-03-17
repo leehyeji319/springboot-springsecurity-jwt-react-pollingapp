@@ -17,7 +17,7 @@ import com.example.polls.security.UserPrincipal;
  */
 
 @Configuration
-@EnableJpaAuditing
+//@EnableJpaAuditing
 public class AuditingConfig {
 	// That's all here for now. We'll add more auditing configurations later.
 
