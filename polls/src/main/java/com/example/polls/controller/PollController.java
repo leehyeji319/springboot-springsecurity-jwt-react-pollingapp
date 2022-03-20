@@ -56,7 +56,6 @@ public class PollController {
 		@RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
 
 		return pollService.getAllPolls(currentUser, page, size);
-
 	}
 
 	@PostMapping

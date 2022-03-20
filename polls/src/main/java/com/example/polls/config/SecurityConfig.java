@@ -34,6 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JwtAuthenticationEntryPoint unauthorizedHandler;
 
+	//Field authenticationManager in service.SecurityServiceImpl required a bean of type 'org.springframework.security.authentication.AuthenticationManager'
+	//이 오류나서 추가
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
